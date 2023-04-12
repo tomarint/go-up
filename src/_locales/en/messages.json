@@ -1,0 +1,10 @@
+{
+  "extName": {
+    "message": "Go Up",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "This extension goes up one level in the URL.",
+    "description": "Extension description"
+  }
+}
