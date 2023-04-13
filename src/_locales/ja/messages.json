@@ -4,7 +4,7 @@
     "description": "Extension name"
   },
   "extDescription": {
-    "message": "URLを一階層上へ移動します。",
+    "message": "一階層上のURLへ移動します。",
     "description": "Extension description"
   }
 }
