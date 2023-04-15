@@ -15,7 +15,6 @@ const createBrowserConfig = (browser) => {
   return {
     mode: isProduction ? "production" : "development",
     entry: {
-      background: path.resolve(__dirname, "src/background/background.ts"),
       popup: path.resolve(__dirname, "src/popup/popup.ts"),
     },
     output: {

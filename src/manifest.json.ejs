@@ -29,19 +29,11 @@
     }
   },
 <% } -%>
-<% if (browser === 'firefox') { -%>
-  "background": {
-    "scripts": [
-      "background/background.js"
-    ]
-  },
-<% } else { -%>
-  "background": {
-    "service_worker": "background/background.js"
-  },
-<% } -%>
   "permissions": [
-    "activeTab",
-    "tabs"
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*/*"
   ]
 }
