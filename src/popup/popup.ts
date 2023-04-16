@@ -52,9 +52,22 @@ async function onClickHandler(url: string): Promise<void> {
     args: [url]
   }, () => {
     if (chrome.runtime.lastError) {
-      // console.log(chrome.runtime.lastError);
+      console.log(
+        "scripting.executeScript", 
+        { url, lastError: chrome.runtime.lastError }
+      );
+      chrome.tabs.update(tabId, { url: url }, () => {
+        if (chrome.runtime.lastError) {
+          console.log(
+            "tabs.update", 
+            { url, lastError: chrome.runtime.lastError }
+          );
+        }
+        window.close();
+      });
+    } else {
+      window.close();
     }
-    window.close();
   });
 }
 
