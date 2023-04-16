@@ -4,7 +4,7 @@
     "description": "Extension name"
   },
   "extDescription": {
-    "message": "This extension goes up the URL one level up",
+    "message": "This browser extension jumps to the upper directories of the current URL",
     "description": "Extension description"
   }
 }
