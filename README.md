@@ -1,16 +1,15 @@
 # 🚀 Go Up
 This is a browser extension that jumps to the upper directories of the current URL.
 
-![Screenshot](./screenshots/1280x800.png)
+![Screenshot](./screenshots/1280x800-chrome.png)
 
 ## How to install
 
 You can install from your browser extension store below.
 
-- TBD
+- [Chrome / Brave](https://chrome.google.com/webstore/detail/go-up/obdfapiepknjcdapjicmcldjbnfjngej)
 <!--
-- [Chrome / Brave](https://chrome.google.com/webstore/detail/)
-- [Firefox](https://addons.mozilla.org/ja/firefox/addon/)
+- [Firefox](https://addons.mozilla.org/en-US/firefox/addon/go-up/)
 - [Edge](https://microsoftedge.microsoft.com/addons/detail/)
 -->
 
