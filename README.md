@@ -3,13 +3,15 @@ This is a browser extension that jumps to the upper directories of the current U
 
 ![Screenshot](./screenshots/1280x800-chrome.png)
 
+![Screenshot](./screenshots/1280x800-firefox.png)
+
 ## How to install
 
 You can install from your browser extension store below.
 
 - [Chrome / Brave](https://chrome.google.com/webstore/detail/go-up/obdfapiepknjcdapjicmcldjbnfjngej)
-<!--
 - [Firefox](https://addons.mozilla.org/en-US/firefox/addon/go-up/)
+<!--
 - [Edge](https://microsoftedge.microsoft.com/addons/detail/)
 -->
 
