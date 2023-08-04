@@ -1,6 +1,6 @@
 {
   "name": "go-up",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Browser extension that jumps one level up",
   "main": "index.js",
   "repository": "git@github.com:tomarint/go-up.git",

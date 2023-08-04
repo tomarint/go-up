@@ -40,7 +40,7 @@ const createBrowserConfig = (browser) => {
             },
             transform: async (content) => {
               const data = {
-                version: "1.0.0",
+                version: "1.0.1",
                 browser: browser,
               };
 
