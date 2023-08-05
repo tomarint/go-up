@@ -81,6 +81,7 @@ async function buildPopup(urlList: string[]) {
     div.style.display = "flex";
     div.style.margin = "0.0rem";
     div.style.padding = "0.5rem";
+    div.style.boxSizing = "border-box";
     // div.style.overflowWrap = "anywhere";
     // div.style.whiteSpace = "pre";
     // div.style.wordBreak = "break-all";
