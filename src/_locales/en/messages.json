@@ -1,10 +1,10 @@
 {
-  "extName": {
+  "extensionName": {
     "message": "Go Up",
     "description": "Extension name"
   },
-  "extDescription": {
-    "message": "This browser extension jumps to the upper directories of the current URL",
+  "extensionDescription": {
+    "message": "This browser extension jumps to the upper directories of the current URL.",
     "description": "Extension description"
   }
 }

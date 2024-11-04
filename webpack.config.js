@@ -16,7 +16,9 @@ const createBrowserConfig = (browser) => {
   return {
     mode: isProduction ? "production" : "development",
     entry: {
+      // background: path.resolve(__dirname, "src/background/background.ts"),
       popup: path.resolve(__dirname, "src/popup/popup.ts"),
+      // options: path.resolve(__dirname, "src/options/options.ts"),
     },
     output: {
       path: path.resolve(__dirname, 'dist', browser),
@@ -41,7 +43,7 @@ const createBrowserConfig = (browser) => {
             },
             transform: async (content) => {
               const data = {
-                version: "1.1.1",
+                version: "1.2.0",
                 browser: browser,
               };
 

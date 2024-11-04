@@ -1,74 +1,13 @@
-'use strict';
-
-async function getCurrentTab(): Promise<chrome.tabs.Tab | null> {
-  const tabs = await chrome.tabs.query({
-    active: true,
-    currentWindow: true
-  });
-  if (tabs.length === 0) {
-    return null;
-  }
-  return tabs[0];
-}
-
-async function createUrlList(url: string): Promise<string[]> {
-  const urlList = [url];
-  // Check if url contains # or ? and remove them
-  if (url.indexOf("#") > 0) {
-    url = url.substring(0, url.indexOf("#"));
-    urlList.push(url);
-  }
-  if (url.indexOf("?") > 0) {
-    url = url.substring(0, url.indexOf("?"));
-    urlList.push(url);
-  }
-  // Remove last slash of url
-  if (url.endsWith("/") && !url.endsWith("//")) {
-    url = url.substring(0, url.length - 1);
-  }
-  // Remove last directory of url
-  let idx = 0;
-  while ((idx = url.lastIndexOf("/")) > 0) {
-    if (idx > 0 && url.substring(idx - 1, idx) === "/") {
-      break;
-    }
-    url = url.substring(0, idx);
-    urlList.push(url);
-  }
-  return urlList;
-}
+import { getCurrentTab, updateTab } from '../utils/tabs';
+import { createUrlList } from '../utils/urls';
 
 async function onClickHandler(url: string): Promise<void> {
   const tabId = (await getCurrentTab())?.id;
   if (tabId == null) {
     return;
   }
-  chrome.scripting.executeScript({
-    target: { tabId: tabId },
-    func: (url) => {
-      //window.history.pushState({}, "", window.location.href);
-      window.location.href = url;
-    },
-    args: [url]
-  }, () => {
-    if (chrome.runtime.lastError) {
-      console.log(
-        "scripting.executeScript", 
-        { url, lastError: chrome.runtime.lastError }
-      );
-      chrome.tabs.update(tabId, { url: url }, () => {
-        if (chrome.runtime.lastError) {
-          console.log(
-            "tabs.update", 
-            { url, lastError: chrome.runtime.lastError }
-          );
-        }
-        window.close();
-      });
-    } else {
-      window.close();
-    }
-  });
+  await updateTab(tabId, { url: url });
+  window.close();
 }
 
 async function buildPopup(urlList: string[]) {
