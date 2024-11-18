@@ -1,8 +1,8 @@
-import { getCurrentTab, updateTab } from '../utils/tabs';
-import { createUrlList } from '../utils/urls';
+import { getActiveTab, updateTab } from '../utils/tabs';
+import { generateParentUrls } from '../utils/urls';
 
 async function onClickHandler(url: string): Promise<void> {
-  const tabId = (await getCurrentTab())?.id;
+  const tabId = (await getActiveTab())?.id;
   if (tabId == null) {
     return;
   }
@@ -53,11 +53,11 @@ async function buildPopup(urlList: string[]) {
 }
 
 async function DOMContentLoadedHandler() {
-  let url = (await getCurrentTab())?.url;
+  let url = (await getActiveTab())?.url;
   if (url == null) {
     return;
   }
-  const urlList = await createUrlList(url);
+  const urlList = await generateParentUrls(url);
   await buildPopup(urlList);
 }
 

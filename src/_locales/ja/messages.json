@@ -1,9 +1,9 @@
 {
-  "extensionName": {
+  "strExtensionName": {
     "message": "Go Up",
     "description": "Extension name"
   },
-  "extensionDescription": {
+  "strExtensionDescription": {
     "message": "現在のURLの上の方のディレクトリへ移動するブラウザ拡張機能です。",
     "description": "Extension description"
   }
