@@ -26,4 +26,4 @@ This is especially useful when navigating through file structures or documentati
 
 ## Related Extensions
 
-If you are looking for a more streamlined way to navigate to the parent directory, consider using **Go Up Key**, which allows you to jump to the parent directory using keyboard shortcuts.
+If you are looking for a more streamlined way to navigate to the parent directory, consider using [Go Up Key](https://github.com/tomarint/go-up-key), which allows you to jump to the parent directory using keyboard shortcuts.
