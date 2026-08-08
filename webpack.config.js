@@ -44,7 +44,7 @@ const createBrowserConfig = (browser, mode) => {
           {
             from: "src",
             globOptions: {
-              ignore: ["**/*.ts", "**/*.ejs"], // Exclude TypeScript and EJS files
+              ignore: ["**/*.ts", "**/*.ejs", "**/.DS_Store"], // Exclude source-only files
             },
           },
           {
@@ -71,6 +71,9 @@ const createBrowserConfig = (browser, mode) => {
         {
           test: /\.(ts|tsx)$/i,
           loader: "ts-loader",
+          options: {
+            transpileOnly: true,
+          },
           exclude: [/\/node_modules\//],
         },
         {
