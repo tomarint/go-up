@@ -10,8 +10,23 @@ async function onClickHandler(url: string): Promise<void> {
   window.close();
 }
 
+function getDisplayUrl(url: string): string {
+  try {
+    // Keep the encoded URL for navigation, but show Unicode characters to the user.
+    // decodeURI preserves reserved characters such as %2F.
+    return decodeURI(url);
+  } catch {
+    // Keep the original URL if it contains an invalid percent-escape sequence.
+    return url;
+  }
+}
+
 async function buildPopup(urlList: string[]) {
   const main = document.getElementById("main") as HTMLDivElement;
+  if (main == null) {
+    return;
+  }
+
   urlList.forEach((url: string | undefined) => {
     if (url == null) {
       return;
@@ -42,11 +57,11 @@ async function buildPopup(urlList: string[]) {
     });
     const link = document.createElement("a");
     link.href = url;
-    link.innerText = url;
-    link.addEventListener("click", async (event: MouseEvent) => {
-      event.preventDefault();
-      await onClickHandler(url);
-    });
+    link.innerText = getDisplayUrl(url);
+    // link.addEventListener("click", async (event: MouseEvent) => {
+    //   event.preventDefault();
+    //   await onClickHandler(url);
+    // });
     div.appendChild(link);
     main.appendChild(div);
   });
