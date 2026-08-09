@@ -59,5 +59,9 @@ export function getParentUrl(url: string, levels: number): string {
   if (urlList.length === 0) {
     return url;
   }
-  return urlList[Math.min(levels, urlList.length - 1)];
+  const normalizedLevels = Number.isFinite(levels)
+    ? Math.max(0, Math.trunc(levels))
+    : 0;
+  const index = Math.min(normalizedLevels, urlList.length - 1);
+  return urlList[index];
 }
