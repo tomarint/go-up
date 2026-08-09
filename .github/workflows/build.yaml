@@ -15,10 +15,10 @@ jobs:
         node-version: [26.x, 24.x]
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
 
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v7
       with:
         node-version: ${{ matrix.node-version }}
         cache: yarn
@@ -35,17 +35,17 @@ jobs:
     - name: Create package
       run: ./build-upload.sh
 
-    - uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v7
       with:
         name: artifact-chrome-${{ matrix.node-version }}-${{ github.sha }}
         path: ./dist/chrome/
 
-    - uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v7
       with:
         name: artifact-firefox-${{ matrix.node-version }}-${{ github.sha }}
         path: ./dist/firefox/
 
-    - uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v7
       with:
         name: artifact-edge-${{ matrix.node-version }}-${{ github.sha }}
         path: ./dist/edge/
